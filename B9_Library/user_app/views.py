@@ -8,11 +8,13 @@ from django.contrib.auth import login, authenticate, logout
 
 def user_signup(request):
     if request.method == "POST":
+        # import pdb;
+        # pdb.set_trace()
         data = request.POST
         form = NewUserForm(data)
         if form.is_valid():
             user = form.save()  # user entry in auth_user table
-            print(user)   #AparnaH
+            print(user)   
             messages.success(request, f"User '{user.username}' registered successfully. You can login here." )
             return redirect("user_login")
         else:
@@ -24,16 +26,12 @@ def user_signup(request):
 
 def user_login(request):
     if request.method == "POST":
-        # form = AuthenticationForm(request, data=request.POST)  # username, password
-        # if form.is_valid():
-        #     user_name = form.cleaned_data.get("username")  # KapilD
-        #     password = form.cleaned_data.get("password")    # Python@123
-        #     print(user_name, password)
+
         user_name = request.POST.get("username")
         password = request.POST.get("password")
         user = authenticate(username=user_name, password=password)  # verify -- auth_user -- return user object
         if user:
-            login(request, user)   # session maintain -- django session table
+            login(request, user)  
             messages.success(request, "Logged in succesfully.")
             return redirect("home_page")
         else:

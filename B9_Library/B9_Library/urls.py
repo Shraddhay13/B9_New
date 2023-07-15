@@ -37,7 +37,7 @@ urlpatterns = [
 
 # patterns/url patterns/urls/endpoints -- 
 # http://127.0.0.1:8000/book/admin/
-# http://127.0.0.1:8000/book/home/
+# http://127.0.0.1:8000flower.jpg
 # http://127.0.0.1:8000/book/show-books/
 # http://127.0.0.1:8000/book/show-single-book/1/
 # http://127.0.0.1:8000/book/add-book/
